@@ -1,0 +1,172 @@
+<main>
+    <section class="informacion">
+      <h1>Registro de Estadistica</h1>
+      <br>
+      <form class="form" [formGroup]="estadisticaForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>rival</mat-label>
+          <input type="text" matInput formControlName="rival" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="estadisticaForm.controls['rival'].hasError('required')">
+            el rival es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>fecha</mat-label>
+          <input type="date" matInput formControlName="fecha" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="estadisticaForm.controls['fecha'].hasError('required')">
+            La fecha es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>jornada</mat-label>
+          <input type="number" matInput formControlName="jornada" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="estadisticaForm.controls['jornada'].hasError('required')">
+            El jornada es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>goles</mat-label>
+          <input type="number" matInput formControlName="goles" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="estadisticaForm.controls['goles'].hasError('required')">
+            El goles es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>remates</mat-label>
+          <input type="number" matInput formControlName="remates" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="estadisticaForm.controls['remates'].hasError('required')">
+            El remates es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>asistencias</mat-label>
+          <input type="number" matInput formControlName="asistencias" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="estadisticaForm.controls['asistencias'].hasError('required')">
+            El asistencias es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>pases</mat-label>
+          <input type="number" matInput formControlName="pases" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="estadisticaForm.controls['pases'].hasError('required')">
+            El pases es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>recuperaciones</mat-label>
+          <input type="number" matInput formControlName="recuperaciones" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="estadisticaForm.controls['recuperaciones'].hasError('required')">
+            El recuperaciones es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>perdidas</mat-label>
+          <input type="number" matInput formControlName="perdidas" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="estadisticaForm.controls['perdidas'].hasError('required')">
+            El perdidas es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>faltasCometidas</mat-label>
+          <input type="number" matInput formControlName="faltasCometidas" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="estadisticaForm.controls['faltasCometidas'].hasError('required')">
+            El faltasCometidas es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>faltasRecibidas</mat-label>
+          <input type="number" matInput formControlName="faltasRecibidas" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="estadisticaForm.controls['faltasRecibidas'].hasError('required')">
+            El faltasRecibidas es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        
+        <button mat-raised-button (click)="onClickCrear()" class="demo-button" [disabled]="!estadisticaForm.valid">
+          Registrar Estadistica
+        </button>
+      </form>
+    </section>
+  </main>
+  
+    <br>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  
+      <ng-container matColumnDef="rival">
+        <th mat-header-cell *matHeaderCellDef> rival </th>
+        <td mat-cell *matCellDef="let element"> {{element.rival}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="jornada">
+        <th mat-header-cell *matHeaderCellDef> jornada </th>
+        <td mat-cell *matCellDef="let element"> {{element.jornada}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="goles">
+        <th mat-header-cell *matHeaderCellDef> goles </th>
+        <td mat-cell *matCellDef="let element"> {{element.goles}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="remates">
+        <th mat-header-cell *matHeaderCellDef> remates </th>
+        <td mat-cell *matCellDef="let element"> {{element.remates}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="asistencias">
+        <th mat-header-cell *matHeaderCellDef> asistencias </th>
+        <td mat-cell *matCellDef="let element"> {{element.asistencias}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="pases">
+        <th mat-header-cell *matHeaderCellDef> pases </th>
+        <td mat-cell *matCellDef="let element"> {{element.pases}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="recuperaciones">
+        <th mat-header-cell *matHeaderCellDef> recuperaciones </th>
+        <td mat-cell *matCellDef="let element"> {{element.recuperaciones}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="perdidas">
+        <th mat-header-cell *matHeaderCellDef> perdidas </th>
+        <td mat-cell *matCellDef="let element"> {{element.perdidas}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="faltasCometidas">
+        <th mat-header-cell *matHeaderCellDef> faltasCometidas </th>
+        <td mat-cell *matCellDef="let element"> {{element.faltasCometidas}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="faltasRecibidas">
+        <th mat-header-cell *matHeaderCellDef> faltasRecibidas </th>
+        <td mat-cell *matCellDef="let element"> {{element.faltasRecibidas}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="jugador">
+        <th mat-header-cell *matHeaderCellDef> jugador </th>
+        <td mat-cell *matCellDef="let element"> {{element.jugador}} </td>
+      </ng-container>
+ 
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <section>
+      <br>
+    </section>

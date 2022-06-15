@@ -1,0 +1,62 @@
+<main>
+    <section class="informacion">
+      <h1>Registro de Jugador</h1>
+      <br>
+      <form class="form" [formGroup]="jugadorForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>nombre</mat-label>
+          <input type="text" matInput formControlName="nombre" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="jugadorForm.controls['nombre'].hasError('required')">
+            nombre es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>numeroIdentificacion</mat-label>
+          <input type="text" matInput formControlName="numeroIdentificacion" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="jugadorForm.controls['numeroIdentificacion'].hasError('required')">
+            El numeroIdentificacion es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>equipo</mat-label>
+          <input type="text" matInput formControlName="equipo" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="jugadorForm.controls['equipo'].hasError('required')">
+            El equipo es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="onClickCrear()" class="demo-button" [disabled]="!jugadorForm.valid">
+          Registrar jugador
+        </button>
+      </form>
+    </section>
+  </main>
+  
+    <br>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="numeroIdentificacion">
+        <th mat-header-cell *matHeaderCellDef> numeroIdentificacion </th>
+        <td mat-cell *matCellDef="let element"> {{element.numeroIdentificacion}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="equipo">
+        <th mat-header-cell *matHeaderCellDef> equipo </th>
+        <td mat-cell *matCellDef="let element"> {{element.equipo}} </td>
+      </ng-container>
+ 
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <section>
+      <br>
+    </section>

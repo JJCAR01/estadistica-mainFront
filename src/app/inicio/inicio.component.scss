@@ -1,0 +1,42 @@
+main
+{
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color:cornflowerblue;
+  
+}
+
+.informacion
+{
+  display: flex;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+.informacion h1
+{
+  color: var(--just-white);
+  font-size: 4rem;
+}
+.home
+{
+  margin: 15px;
+  
+  align-items: center;
+  display: flex;
+ 
+}
+  .Jugador,.Estadistica
+  {
+    background-color:rgb(132, 192, 240);
+    color:white;
+    margin-left: 10px;
+    height: 90px;
+    width: 30%; 
+    border: 2px;
+    font-size: 2.5rem;
+  }
